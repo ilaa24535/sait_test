@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Расписание РГРТУ</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>📅 Расписание РГРТУ</h1>
+
+        <!-- Переключатель недель -->
+        <div class="week-switcher">
+            <button id="prev-week">Числитель</button>
+            <span id="current-week">Числитель</span>
+            <button id="next-week">Знаменатель</button>
+        </div>
+
+        <!-- Переключатель дней недели -->
+        <div class="days">
+            <button class="day" data-day="Пн">Пн</button>
+            <button class="day" data-day="Вт">Вт</button>
+            <button class="day" data-day="Ср">Ср</button>
+            <button class="day" data-day="Чт">Чт</button>
+            <button class="day" data-day="Пт">Пт</button>
+            <button class="day" data-day="Сб">Сб</button>
+        </div>
+
+        <div id="schedule"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
