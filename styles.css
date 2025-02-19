@@ -1,0 +1,63 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #222;
+    color: #fff;
+    text-align: center;
+}
+
+.container {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 10px;
+    background-color: #333;
+    border-radius: 10px;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.week-switcher {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.week-switcher button {
+    background: #444;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.days {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10px;
+}
+
+.day {
+    background: #444;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 50px;
+    border-radius: 5px;
+}
+
+#schedule {
+    margin-top: 10px;
+}
+
+.lesson {
+    background-color: #444;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    text-align: left;
+}

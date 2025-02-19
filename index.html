@@ -4,83 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Расписание РГРТУ</title>
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #222;
-            color: #fff;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-        }
-        .schedule-container {
-            margin: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .schedule-card {
-            background: #333;
-            border-radius: 10px;
-            padding: 15px;
-            margin: 10px;
-            width: 80%;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        .schedule-time {
-            background: #111;
-            color: #fff;
-            padding: 5px 10px;
-            border-radius: 5px;
-            font-weight: bold;
-            display: inline-block;
-        }
-        .schedule-subject {
-            font-size: 18px;
-            font-weight: bold;
-            margin: 10px 0;
-        }
-        .schedule-teacher, .schedule-room {
-            font-size: 14px;
-            margin: 5px 0;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>📅 Расписание РГРТУ</h1>
-    <div id="schedule-container" class="schedule-container">
-        <p>Загрузка расписания...</p>
+    <div class="container">
+        <h1>📅 Расписание РГРТУ</h1>
+
+        <!-- Переключатель недель -->
+        <div class="week-switcher">
+            <button id="prev-week">Числитель</button>
+            <span id="current-week">Числитель</span>
+            <button id="next-week">Знаменатель</button>
+        </div>
+
+        <!-- Переключатель дней недели -->
+        <div class="days">
+            <button class="day" data-day="Пн">Пн</button>
+            <button class="day" data-day="Вт">Вт</button>
+            <button class="day" data-day="Ср">Ср</button>
+            <button class="day" data-day="Чт">Чт</button>
+            <button class="day" data-day="Пт">Пт</button>
+            <button class="day" data-day="Сб">Сб</button>
+        </div>
+
+        <div id="schedule"></div>
     </div>
 
-    <script>
-        let tg = window.Telegram.WebApp;
-        tg.expand();
-
-        fetch("http://127.0.0.1:8000/get_schedule")  // Поменяй на свой API
-            .then(response => response.json())
-            .then(data => {
-                const container = document.getElementById("schedule-container");
-                container.innerHTML = "";  // Очищаем контейнер
-
-                data.schedule.forEach(item => {
-                    const card = document.createElement("div");
-                    card.classList.add("schedule-card");
-
-                    card.innerHTML = `
-                        <div class="schedule-time">${item.time}</div>
-                        <div class="schedule-subject">${item.subject}</div>
-                        <div class="schedule-teacher">👨‍🏫 ${item.teacher}</div>
-                        <div class="schedule-room">🏫 ${item.room || "Не указано"}</div>
-                    `;
-
-                    container.appendChild(card);
-                });
-            })
-            .catch(error => {
-                console.error("Ошибка загрузки расписания:", error);
-                document.getElementById("schedule-container").innerHTML = "<p>Ошибка загрузки расписания.</p>";
-            });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
